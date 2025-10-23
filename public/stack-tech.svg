@@ -1,0 +1,137 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <g font-family="Inter, Segoe UI, Roboto, Arial, sans-serif">
+    <text x="800" y="70" font-size="34" text-anchor="middle" fill="#0F172A" font-weight="700">XAcademy – Stack Tecnológico</text>
+    <text x="800" y="102" font-size="16" text-anchor="middle" fill="#475569">Minimalista • Fondo transparente • Sin logos</text>
+  </g>
+
+  <!-- Section labels -->
+  <g font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="18" fill="#6B7280" font-weight="600">
+    <text x="90" y="160">Frontend</text>
+    <text x="90" y="330">Backend</text>
+    <text x="90" y="500">Base de datos</text>
+    <text x="90" y="670">Infraestructura / Herramientas</text>
+  </g>
+
+  <!-- Card helper: rectangles with left color bar -->
+  <!-- Frontend Row -->
+  <!-- Angular 19 -->
+  <g transform="translate(120,180)">
+    <rect x="0" y="0" rx="16" ry="16" width="300" height="90" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="0" y="0" width="10" height="90" fill="#DD0031"/>
+    <text x="28" y="54" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="#0F172A" font-weight="700">Angular 19</text>
+    <text x="28" y="75" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="13" fill="#64748B">SPA, Router, RxJS</text>
+  </g>
+
+  <!-- TypeScript -->
+  <g transform="translate(460,180)">
+    <rect x="0" y="0" rx="16" ry="16" width="300" height="90" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="0" y="0" width="10" height="90" fill="#3178C6"/>
+    <text x="28" y="54" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="#0F172A" font-weight="700">TypeScript</text>
+    <text x="28" y="75" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="13" fill="#64748B">Tipado estático • TS 5.x</text>
+  </g>
+
+  <!-- Tailwind CSS -->
+  <g transform="translate(800,180)">
+    <rect x="0" y="0" rx="16" ry="16" width="300" height="90" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="0" y="0" width="10" height="90" fill="#06B6D4"/>
+    <text x="28" y="54" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="#0F172A" font-weight="700">Tailwind CSS</text>
+    <text x="28" y="75" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="13" fill="#64748B">Utilidades, diseño responsivo</text>
+  </g>
+
+  <!-- Backend Row -->
+  <!-- Spring Boot 3 -->
+  <g transform="translate(120,350)">
+    <rect x="0" y="0" rx="16" ry="16" width="300" height="90" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="0" y="0" width="10" height="90" fill="#6DB33F"/>
+    <text x="28" y="54" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="#0F172A" font-weight="700">Spring Boot 3</text>
+    <text x="28" y="75" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="13" fill="#64748B">REST API, Actuator</text>
+  </g>
+
+  <!-- Java 17 -->
+  <g transform="translate(460,350)">
+    <rect x="0" y="0" rx="16" ry="16" width="300" height="90" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="0" y="0" width="10" height="90" fill="#007396"/>
+    <text x="28" y="54" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="#0F172A" font-weight="700">Java 17</text>
+    <text x="28" y="75" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="13" fill="#64748B">LTS</text>
+  </g>
+
+  <!-- JPA -->
+  <g transform="translate(800,350)">
+    <rect x="0" y="0" rx="16" ry="16" width="300" height="90" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="0" y="0" width="10" height="90" fill="#6B7280"/>
+    <text x="28" y="54" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="#0F172A" font-weight="700">JPA</text>
+    <text x="28" y="75" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="13" fill="#64748B">Persistencia ORM</text>
+  </g>
+
+  <!-- MapStruct -->
+  <g transform="translate(1140,350)">
+    <rect x="0" y="0" rx="16" ry="16" width="300" height="90" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="0" y="0" width="10" height="90" fill="#F59E0B"/>
+    <text x="28" y="54" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="#0F172A" font-weight="700">MapStruct</text>
+    <text x="28" y="75" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="13" fill="#64748B">Mappers DTO</text>
+  </g>
+
+  <!-- Lombok -->
+  <g transform="translate(120,440)">
+    <rect x="0" y="0" rx="16" ry="16" width="300" height="90" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="0" y="0" width="10" height="90" fill="#C22D40"/>
+    <text x="28" y="54" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="#0F172A" font-weight="700">Lombok</text>
+    <text x="28" y="75" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="13" fill="#64748B">Boilerplate reduction</text>
+  </g>
+
+  <!-- Database Row -->
+  <!-- PostgreSQL -->
+  <g transform="translate(120,520)">
+    <rect x="0" y="0" rx="16" ry="16" width="300" height="90" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="0" y="0" width="10" height="90" fill="#336791"/>
+    <text x="28" y="54" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="#0F172A" font-weight="700">PostgreSQL</text>
+    <text x="28" y="75" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="13" fill="#64748B">Relacional</text>
+  </g>
+
+  <!-- Docker (BD en contenedor) -->
+  <g transform="translate(460,520)">
+    <rect x="0" y="0" rx="16" ry="16" width="300" height="90" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="0" y="0" width="10" height="90" fill="#2496ED"/>
+    <text x="28" y="54" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="#0F172A" font-weight="700">Docker</text>
+    <text x="28" y="75" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="13" fill="#64748B">PostgreSQL en contenedor</text>
+  </g>
+
+  <!-- Infra / Tools Row -->
+  <!-- IntelliJ IDEA -->
+  <g transform="translate(120,690)">
+    <rect x="0" y="0" rx="16" ry="16" width="300" height="90" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="0" y="0" width="10" height="90" fill="#000000"/>
+    <text x="28" y="54" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="#0F172A" font-weight="700">IntelliJ IDEA</text>
+    <text x="28" y="75" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="13" fill="#64748B">IDE</text>
+  </g>
+
+  <!-- Docker Desktop -->
+  <g transform="translate(460,690)">
+    <rect x="0" y="0" rx="16" ry="16" width="300" height="90" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="0" y="0" width="10" height="90" fill="#2496ED"/>
+    <text x="28" y="54" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="#0F172A" font-weight="700">Docker Desktop</text>
+    <text x="28" y="75" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="13" fill="#64748B">Contenedores locales</text>
+  </g>
+
+  <!-- Git -->
+  <g transform="translate(800,690)">
+    <rect x="0" y="0" rx="16" ry="16" width="300" height="90" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="0" y="0" width="10" height="90" fill="#F05032"/>
+    <text x="28" y="54" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="#0F172A" font-weight="700">Git</text>
+    <text x="28" y="75" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="13" fill="#64748B">Control de versiones</text>
+  </g>
+
+  <!-- VS Code -->
+  <g transform="translate(1140,690)">
+    <rect x="0" y="0" rx="16" ry="16" width="300" height="90" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="0" y="0" width="10" height="90" fill="#007ACC"/>
+    <text x="28" y="54" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="22" fill="#0F172A" font-weight="700">VS Code</text>
+    <text x="28" y="75" font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="13" fill="#64748B">Editor</text>
+  </g>
+
+  <!-- Legend / note -->
+  <g font-family="Inter, Segoe UI, Roboto, Arial, sans-serif" font-size="12" fill="#94A3B8">
+    <text x="1510" y="880" text-anchor="end">v1 • sin logos • colores de marca</text>
+  </g>
+</svg>
