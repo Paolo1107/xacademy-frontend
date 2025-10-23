@@ -1,13 +1,13 @@
-<button (click)="back()">← Back</button>
+<div class="detail">
+  <button class="btn" (click)="back()">← Back</button>
 
-@if (player) {
-<h2>{{ player.long_name }}</h2>
-<p>
-  {{ player.player_positions }} • {{ player.club_name || "—" }} •
-  {{ player.gender }} v{{ player.fifa_version }}
-</p>
+  <h2 class="title">{{ player?.long_name }}</h2>
+  <p class="muted">
+    {{ player?.player_positions }} • {{ player?.club_name || '—' }} •
+    {{ player?.gender }} v{{ player?.fifa_version }}
+  </p>
 
-<canvas #radarCanvas width="300" height="300"></canvas>
-} @else {
-<p>Cargando...</p>
-}
+  <div class="radar">
+    <canvas #radarCanvas width="520" height="420"></canvas>
+  </div>
+</div>

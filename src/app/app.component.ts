@@ -8,6 +8,6 @@ import { AuthService } from './core/auth/auth.service';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  constructor(public auth: AuthService, private router: Router) { }
+  constructor(public auth: AuthService, public router: Router) { }
   logout() { this.auth.logout(); this.router.navigate(['/login']); }
 }

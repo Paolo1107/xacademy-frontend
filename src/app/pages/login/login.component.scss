@@ -1,20 +1,14 @@
 .login {
-  max-width: 400px;
-  margin: 5rem auto;
-  padding: 2rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .error {
-    color: red;
-    text-align: center;
-  }
+  min-height: calc(100dvh - 60px);
+  display: grid; place-items: center;
 }
+
+.card {
+  width: min(420px, 92%);
+  display: grid; gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+}
+.error { color: #dc2626; }

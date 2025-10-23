@@ -1,65 +1,43 @@
-.players {
-  padding: 1.5rem;
+.players { }
 
-  .filters {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(140px, 1fr)) 1fr 1fr 1fr;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+.filters {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 16px;
 
-    input,
-    select,
-    button {
-      padding: 0.5rem 0.6rem;
-    }
+  .row > * { min-width: 140px; }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex; flex-direction: column; gap: 10px;
+
+  .top {
+    display: flex; align-items: center;
   }
-
-  .list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 0.75rem;
+  .name { font-weight: 700; flex: 1; }
+  .ovr {
+    background: #111827; color: #fff; font-weight: 700;
+    border-radius: 10px; padding: 4px 8px; min-width: 32px; text-align: center;
   }
+  .meta { display: flex; gap: 6px; flex-wrap: wrap; font-size: 14px; }
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; font-size: 14px; }
+  .link { color: var(--primary); text-decoration: none; font-weight: 600; }
+}
 
-  .card {
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
-    padding: 0.75rem;
-    display: grid;
-    gap: 0.4rem;
-
-    .top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      .ovr {
-        background: #111;
-        color: #fff;
-        border-radius: 6px;
-        padding: 0.1rem 0.4rem;
-        font-weight: 600;
-      }
-    }
-    .meta,
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 0.75rem;
-      font-size: 0.9rem;
-      color: #555;
-    }
-  }
-
-  .pager {
-    margin-top: 1rem;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-  }
-
-  .muted {
-    color: #777;
-  }
-  .error {
-    color: #c00;
-  }
+.pager {
+  display: flex; align-items: center; gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
 }

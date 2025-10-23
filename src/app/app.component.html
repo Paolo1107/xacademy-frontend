@@ -1,11 +1,18 @@
-@if (auth.isAuthenticated()) {
-  <nav class="topbar">
-    <a routerLink="/players">Players</a>
-    <a routerLink="/my-players">My Players</a>
-    <span class="spacer"></span>
-    <button (click)="logout()">Logout</button>
-  </nav>
-}
+<header class="topbar">
+  <div class="topbar__content container">
+    <div class="brand">XAcademy</div>
 
+    <nav class="nav">
+      <a routerLink="/players" routerLinkActive="active">Players</a>
+      <a routerLink="/my-players" routerLinkActive="active">My Players</a>
+    </nav>
 
-<router-outlet />
+    <button class="btn btn--ghost" (click)="auth.logout(); router.navigate(['/login'])">
+      Logout
+    </button>
+  </div>
+</header>
+
+<main class="container">
+  <router-outlet />
+</main>
