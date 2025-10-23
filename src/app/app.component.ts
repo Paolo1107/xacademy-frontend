@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
+import { RouterOutlet, Router } from '@angular/router';
+import { AuthService } from './core/auth/auth.service';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
@@ -8,5 +8,6 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'xacademy-fronted';
+  constructor(public auth: AuthService, private router: Router) { }
+  logout() { this.auth.logout(); this.router.navigate(['/login']); }
 }

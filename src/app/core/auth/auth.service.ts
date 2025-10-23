@@ -39,4 +39,7 @@ export class AuthService {
     isAuthenticated$() {
         return this.isLoggedIn$.asObservable();
     }
+
+    isAuthenticated() { return !!this.getToken(); }
+
 }
