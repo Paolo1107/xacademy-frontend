@@ -44,5 +44,5 @@
   </label>
 
   <button type="submit" [disabled]="form.invalid">Guardar</button>
-  <a routerLink="/my-players">Cancelar</a>
+  <button type="button" class="btn-outlined" (click)="goBack()">Cancelar</button>
 </form>

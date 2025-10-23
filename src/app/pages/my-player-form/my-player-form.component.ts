@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, NonNullableFormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MyPlayersService, MyPlayerPayload } from '../../core/my-players.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-my-player-form',
@@ -25,7 +26,8 @@ export class MyPlayerFormComponent implements OnInit {
     private fb: NonNullableFormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private svc: MyPlayersService
+    private svc: MyPlayersService,
+    private location: Location
   ) {
     // inicializamos el formulario dentro del constructor
     this.form = this.fb.group({
@@ -62,4 +64,5 @@ export class MyPlayerFormComponent implements OnInit {
       this.svc.create(payload).subscribe(() => this.router.navigate(['/my-players']));
     }
   }
+  goBack() { this.location.back(); }
 }
