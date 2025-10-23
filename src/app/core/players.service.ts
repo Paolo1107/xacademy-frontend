@@ -84,4 +84,13 @@ export class PlayersService {
       URL.revokeObjectURL(url);
     });
   }
+
+  getById(id: number, opts?: { gender?: string; version?: string }) {
+    let params = new HttpParams();
+    if (opts?.gender) params = params.set('gender', opts.gender);
+    if (opts?.version) params = params.set('version', opts.version);
+    return this.http.get<Player>(`/api/players/${id}`, { params });
+  }
+
+
 }
