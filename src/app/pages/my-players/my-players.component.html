@@ -1,0 +1,22 @@
+<section>
+  <h2>Mis jugadores</h2>
+  <a routerLink="/my-players/new">+ Crear</a>
+
+  @if (loading) {
+  <p>Cargando…</p>
+  } @else if (error) {
+  <p class="error">{{ error }}</p>
+  } @else if (data.length === 0) {
+  <p>No tenés jugadores creados.</p>
+  } @else {
+  <ul>
+    @for (p of data; track p.id) {
+    <li>
+      <strong>{{ p.long_name }}</strong> — {{ p.player_positions }} —
+      {{ p.overall_rating }}
+      <a [routerLink]="['/my-players', p.id]">Editar</a>
+    </li>
+    }
+  </ul>
+  }
+</section>

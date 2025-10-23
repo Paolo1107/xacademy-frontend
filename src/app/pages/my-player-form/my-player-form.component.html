@@ -1,0 +1,48 @@
+<h2>{{ isEdit ? "Editar" : "Crear" }} jugador</h2>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <label>Nombre <input formControlName="long_name" /></label>
+  <label
+    >Posición
+    <select formControlName="player_positions">
+      @for (pos of positions; track pos) {
+      <option [value]="pos">{{ pos }}</option>
+      }
+    </select>
+  </label>
+  <label>Club <input formControlName="club_name" /></label>
+  <label>Nacionalidad <input formControlName="nationality_name" /></label>
+
+  <label
+    >Overall
+    <input type="number" formControlName="overall_rating" min="1" max="99"
+  /></label>
+  <div class="grid">
+    <label>Pace <input type="number" formControlName="pace" /></label>
+    <label>Shoot <input type="number" formControlName="shooting" /></label>
+    <label>Pass <input type="number" formControlName="passing" /></label>
+    <label>Drib <input type="number" formControlName="dribbling" /></label>
+    <label>Def <input type="number" formControlName="defending" /></label>
+    <label>Phy <input type="number" formControlName="physic" /></label>
+  </div>
+
+  <label
+    >Género
+    <select formControlName="gender">
+      @for (g of genders; track g) {
+      <option [value]="g">{{ g }}</option>
+      }
+    </select>
+  </label>
+
+  <label
+    >Versión
+    <select formControlName="fifa_version">
+      @for (v of versions; track v) {
+      <option [value]="v">{{ v }}</option>
+      }
+    </select>
+  </label>
+
+  <button type="submit" [disabled]="form.invalid">Guardar</button>
+  <a routerLink="/my-players">Cancelar</a>
+</form>
