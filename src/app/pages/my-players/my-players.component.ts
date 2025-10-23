@@ -1,22 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MyPlayersService } from '../../core/my-players.service';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { MyPlayersService, MyPlayerPayload } from '../../core/my-players.service';
 
 @Component({
   selector: 'app-my-players',
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './my-players.component.html',
-  styleUrls: ['./my-players.component.scss']
+  styleUrls: ['./my-players.component.scss'],
 })
 export class MyPlayersComponent implements OnInit {
-  loading = true; error: string | null = null; data: any[] = [];
-  constructor(private svc: MyPlayersService, private router: Router) { }
+  loading = signal(false);
+  error   = signal<string | null>(null);
+  items   = signal<MyPlayerPayload[]>([]); // 👈 SIEMPRE array
+
+  constructor(private svc: MyPlayersService) {}
+
   ngOnInit() {
+    this.loading.set(true);
     this.svc.listMine().subscribe({
-      next: d => { this.data = d; this.loading = false; },
-      error: () => { this.error = 'No se pudieron cargar tus jugadores'; this.loading = false; }
+      next: rows => { this.items.set(rows ?? []); this.loading.set(false); },
+      error: () => { this.error.set('No se pudieron cargar tus jugadores'); this.loading.set(false); }
     });
   }
 }
