@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './app/pages/login/login.component';
-import { HealthComponent } from './app/pages/health/health.component';
-import { PlayersComponent } from './app/pages/players/players.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HealthComponent } from './pages/health/health.component';
+import { PlayersComponent } from './pages/players/players.component';
 import { authGuard } from './core/auth/auth.guard';
 
 export const routes: Routes = [
