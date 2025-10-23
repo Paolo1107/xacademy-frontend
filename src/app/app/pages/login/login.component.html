@@ -1,0 +1,19 @@
+<section class="login">
+  <h2>Iniciar sesión</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>
+      Email:
+      <input formControlName="email" placeholder="admin@xacademy.dev" />
+    </label>
+
+    <label>
+      Contraseña:
+      <input formControlName="password" placeholder="admin123@xacademy.dev" />
+    </label>
+
+    <button type="submit" [disabled]="loading">Entrar</button>
+  </form>
+
+  <p *ngIf="error" class="error">{{ error }}</p>
+</section>

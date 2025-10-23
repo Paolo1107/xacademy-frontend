@@ -1,0 +1,83 @@
+<section class="players">
+  <h2>Players</h2>
+
+  <!-- FILTROS -->
+  <form [formGroup]="filterForm" (ngSubmit)="submitFilters()" class="filters">
+    <input formControlName="name" placeholder="Name" />
+    <input formControlName="club" placeholder="Club" />
+    <select formControlName="position">
+      <option value="">Position</option>
+      @for (pos of positions; track pos) {
+      <option [value]="pos">{{ pos }}</option>
+      }
+    </select>
+    <select formControlName="gender">
+      <option value="">Gender</option>
+      @for (g of genders; track g) {
+      <option [value]="g">{{ g }}</option>
+      }
+    </select>
+    <select formControlName="version">
+      <option value="">Version</option>
+      @for (v of versions; track v) {
+      <option [value]="v">{{ v }}</option>
+      }
+    </select>
+    <select formControlName="pageSize">
+      @for (s of [10,20,50,100]; track s) {
+      <option [value]="s">{{ s }} / page</option>
+      }
+    </select>
+
+    <button type="submit">Search</button>
+    <button type="button" (click)="clearFilters()">Clear</button>
+    <button type="button" (click)="exportCsv()">Export CSV</button>
+  </form>
+
+  <!-- ESTADOS -->
+  @if (loading()) {
+  <p class="muted">Loading...</p>
+  } @if (error()) {
+  <p class="error">{{ error() }}</p>
+  }
+
+  <!-- LISTA -->
+  @if (!loading() && !error()) {
+  <div class="list">
+    @for (p of players(); track p.id) {
+    <div class="card">
+      <div class="top">
+        <strong>{{ p.long_name }}</strong>
+        <span class="ovr">{{ p.overall_rating }}</span>
+      </div>
+      <div class="meta">
+        <span>{{ p.player_positions }}</span>
+        <span>{{ p.club_name || "—" }}</span>
+        <span>{{ p.nationality_name || "—" }}</span>
+        <span>{{ p.gender }} • v{{ p.fifa_version }}</span>
+      </div>
+      <div class="skills">
+        <span>PAC {{ p.pace }}</span>
+        <span>SHO {{ p.shooting }}</span>
+        <span>PAS {{ p.passing }}</span>
+        <span>DRI {{ p.dribbling }}</span>
+        <span>DEF {{ p.defending }}</span>
+        <span>PHY {{ p.physic }}</span>
+      </div>
+    </div>
+    } @if (players().length === 0) {
+    <p class="muted">No results.</p>
+    }
+  </div>
+
+  <!-- PAGINACIÓN -->
+  <div class="pager">
+    <button (click)="prevPage()" [disabled]="page() <= 1">Prev</button>
+    <span>Page {{ page() }} / {{ totalPages() }}</span>
+    <button (click)="nextPage()" [disabled]="page() >= totalPages()">
+      Next
+    </button>
+    <span> Total: {{ total() }} </span>
+  </div>
+  }
+</section>

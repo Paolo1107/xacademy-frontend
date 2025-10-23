@@ -1,0 +1,5 @@
+<section class="health">
+  <h2>Backend health</h2>
+  <button (click)="check()">Check</button>
+  <pre *ngIf="data as d">{{ d | json }}</pre>
+</section>
