@@ -1,9 +1,11 @@
-<nav class="topbar" *ngIf="auth.isAuthenticated()">
-  <a routerLink="/players">Players</a>
-  <a routerLink="/my-players">My Players</a>
-  <span class="spacer"></span>
-  <button (click)="logout()">Logout</button>
-</nav>
-<router-outlet />
+@if (auth.isAuthenticated()) {
+  <nav class="topbar">
+    <a routerLink="/players">Players</a>
+    <a routerLink="/my-players">My Players</a>
+    <span class="spacer"></span>
+    <button (click)="logout()">Logout</button>
+  </nav>
+}
+
 
 <router-outlet />

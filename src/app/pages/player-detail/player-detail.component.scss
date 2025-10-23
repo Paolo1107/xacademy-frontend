@@ -1,4 +1,11 @@
-.detail { padding: 1rem; }
-.meta { color:#666; margin-bottom:.75rem; }
-.radar { max-width:520px; }
-.muted { color:#777; } .error { color:#c00; }
+:host {
+  display: block;
+  padding: 1rem;
+}
+button {
+  margin-bottom: 1rem;
+}
+canvas {
+  max-width: 400px;
+  max-height: 400px;
+}

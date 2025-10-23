@@ -9,13 +9,21 @@ import { MyPlayerFormComponent } from './pages/my-player-form/my-player-form.com
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
+
     { path: 'health', component: HealthComponent, canActivate: [authGuard] },
+
+    //rutas “players” (lista y detalle)
     { path: 'players', component: PlayersComponent, canActivate: [authGuard] },
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
-    { path: '**', redirectTo: 'login' },
     { path: 'players/:id', component: PlayerDetailComponent, canActivate: [authGuard] },
+
+    //rutas “my-players”
     { path: 'my-players', component: MyPlayersComponent, canActivate: [authGuard] },
     { path: 'my-players/new', component: MyPlayerFormComponent, canActivate: [authGuard] },
-    { path: 'my-players/:id', component: MyPlayerFormComponent, canActivate: [authGuard] }
-];
+    { path: 'my-players/:id', component: MyPlayerFormComponent, canActivate: [authGuard] },
 
+    // Home: ir directo a players y que el guard decida
+    { path: '', pathMatch: 'full', redirectTo: 'players' },
+
+    // última
+    { path: '**', redirectTo: 'players' },
+];

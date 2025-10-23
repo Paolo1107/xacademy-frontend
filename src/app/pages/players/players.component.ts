@@ -2,11 +2,12 @@ import { Component, OnInit, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   ReactiveFormsModule,
-  NonNullableFormBuilder,  // 👈
+  NonNullableFormBuilder,
   FormGroup,
   FormControl
 } from '@angular/forms';
 import { PlayersService, PlayersResponse } from '../../core/players.service';
+import { RouterModule } from '@angular/router';
 
 type Filters = {
   name: string;
@@ -25,7 +26,7 @@ type FiltersForm = {
 @Component({
   selector: 'app-players',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './players.component.html',
   styleUrls: ['./players.component.scss'],
 })
@@ -45,14 +46,14 @@ export class PlayersComponent implements OnInit {
   // formulario tipado
   filterForm!: FormGroup<FiltersForm>;
 
-  positions = ['GK','LB','CB','RB','LWB','RWB','CDM','CM','CAM','LM','RM','LW','RW','ST','CF'];
+  positions = ['GK', 'LB', 'CB', 'RB', 'LWB', 'RWB', 'CDM', 'CM', 'CAM', 'LM', 'RM', 'LW', 'RW', 'ST', 'CF'];
   genders = ['male', 'female'];
-  versions = ['23','22','21','20','19','18','17','16','15'];
+  versions = ['23', '22', '21', '20', '19', '18', '17', '16', '15'];
 
   constructor(
     private fb: NonNullableFormBuilder,      // builder no-nullable
     private playersSvc: PlayersService
-  ) {}
+  ) { }
 
   ngOnInit() {
     // valores iniciales → infiere FormControl<string|number> NO nullables

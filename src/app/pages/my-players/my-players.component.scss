@@ -1,0 +1,20 @@
+:host { display:block; padding:1rem; }
+
+h2 { margin: .25rem 0 1rem; }
+
+a[routerLink="/my-players/new"] {
+  display:inline-block;
+  margin-bottom:1rem;
+  padding:.5rem .75rem;
+  border:1px solid #ddd;
+  border-radius:.5rem;
+  text-decoration:none;
+}
+
+ul { list-style:none; margin:0; padding:0; display:grid; gap:.75rem; }
+li {
+  border:1px solid #eee; border-radius:.75rem; padding:.75rem;
+  display:flex; align-items:center; gap:1rem; justify-content:space-between;
+}
+li a { text-decoration:none; padding:.35rem .6rem; border:1px solid #ddd; border-radius:.5rem; }
+.error { color:#c00; }

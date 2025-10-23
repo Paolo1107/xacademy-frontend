@@ -1,17 +1,13 @@
-<section class="detail">
-  <button (click)="back()">← Back</button>
+<button (click)="back()">← Back</button>
 
-  @if (loading) {
-  <p class="muted">Cargando…</p>
-  } @else if (error) {
-  <p class="error">{{ error }}</p>
-  } @else {
-  <h2>{{ player.long_name }}</h2>
-  <p class="meta">
-    {{ player.player_positions }} • {{ player.club_name || "—" }} •
-    {{ player.gender }} v{{ player.fifa_version }}
-  </p>
+@if (player) {
+<h2>{{ player.long_name }}</h2>
+<p>
+  {{ player.player_positions }} • {{ player.club_name || "—" }} •
+  {{ player.gender }} v{{ player.fifa_version }}
+</p>
 
-  <div class="radar"><canvas #radarCanvas></canvas></div>
-  }
-</section>
+<canvas #radarCanvas width="300" height="300"></canvas>
+} @else {
+<p>Cargando...</p>
+}

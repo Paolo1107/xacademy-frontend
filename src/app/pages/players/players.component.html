@@ -64,6 +64,18 @@
         <span>DEF {{ p.defending }}</span>
         <span>PHY {{ p.physic }}</span>
       </div>
+      <div class="actions">
+        <a
+          class="btn-link"
+          [routerLink]="['/players', p.id]"
+          [queryParams]="{
+            gender: filterForm.value.gender || undefined,
+            version: filterForm.value.version || undefined
+          }"
+        >
+          Ver detalle
+        </a>
+      </div>
     </div>
     } @if (players().length === 0) {
     <p class="muted">No results.</p>

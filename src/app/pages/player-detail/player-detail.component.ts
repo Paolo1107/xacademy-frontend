@@ -1,61 +1,71 @@
-import { Component, OnDestroy, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PlayersService, Player } from '../../core/players.service';
-import {
-  Chart, RadarController, RadialLinearScale, PointElement, LineElement,
-  Filler, Tooltip, Legend
-} from 'chart.js';
-Chart.register(RadarController, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
+import { Chart, registerables } from 'chart.js';
+
+Chart.register(...registerables);
 
 @Component({
-  selector: 'app-player-detail',
   standalone: true,
+  selector: 'app-player-detail',
   imports: [CommonModule],
   templateUrl: './player-detail.component.html',
   styleUrls: ['./player-detail.component.scss']
 })
-export class PlayerDetailComponent implements OnInit, OnDestroy {
+export class PlayerDetailComponent implements OnInit {
+  player?: Player;
   @ViewChild('radarCanvas') radarCanvas!: ElementRef<HTMLCanvasElement>;
-
-  loading = true;
-  error: string | null = null;
-  player!: Player;
-  chart?: Chart;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private playersSvc: PlayersService
+    private svc: PlayersService
   ) { }
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    const gender = this.route.snapshot.queryParamMap.get('gender') ?? undefined;
-    const version = this.route.snapshot.queryParamMap.get('version') ?? undefined;
+    const gender = this.route.snapshot.queryParamMap.get('gender') || '';
+    const version = this.route.snapshot.queryParamMap.get('version') || '';
 
-    if (!Number.isFinite(id)) { this.error = 'ID inválido'; this.loading = false; return; }
-
-    this.playersSvc.getById(id, { gender, version }).subscribe({
-      next: (p) => { this.player = p; this.loading = false; queueMicrotask(() => this.renderChart()); },
-      error: () => { this.error = 'No se pudo cargar el jugador'; this.loading = false; }
+    this.svc.getById(id, { gender, version }).subscribe(p => {
+      this.player = p;
+      setTimeout(() => this.drawRadar(), 0);
     });
   }
 
-  renderChart() {
-    if (!this.radarCanvas) return;
-    const { pace, shooting, passing, dribbling, defending, physic } = this.player;
-    this.chart?.destroy();
-    this.chart = new Chart(this.radarCanvas.nativeElement, {
+  drawRadar() {
+    if (!this.player) return;
+    const ctx = this.radarCanvas.nativeElement.getContext('2d');
+    if (!ctx) return;
+
+    new Chart(ctx, {
       type: 'radar',
       data: {
-        labels: ['PACE', 'SHOOT', 'PASS', 'DRIB', 'DEF', 'PHY'],
-        datasets: [{ label: this.player.long_name, data: [pace, shooting, passing, dribbling, defending, physic], fill: true }]
+        labels: ['Pace', 'Shooting', 'Passing', 'Dribbling', 'Defending', 'Physic'],
+        datasets: [{
+          label: this.player.long_name,
+          data: [
+            this.player.pace,
+            this.player.shooting,
+            this.player.passing,
+            this.player.dribbling,
+            this.player.defending,
+            this.player.physic
+          ],
+          borderColor: '#3b82f6',
+          backgroundColor: 'rgba(59,130,246,0.2)',
+          borderWidth: 2,
+        }],
       },
-      options: { responsive: true, scales: { r: { suggestedMin: 0, suggestedMax: 100, ticks: { stepSize: 20 } } } }
+      options: {
+        scales: { r: { beginAtZero: true, max: 100 } },
+        plugins: { legend: { display: false } },
+      },
     });
   }
 
-  back() { this.router.navigate(['/players']); }
-  ngOnDestroy() { this.chart?.destroy(); }
+  back() {
+    this.router.navigate(['/players']);
+  }
 }
