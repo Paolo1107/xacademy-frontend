@@ -1,4 +1,5 @@
-.players { }
+.players {
+}
 
 .filters {
   background: var(--card);
@@ -7,7 +8,9 @@
   padding: 12px;
   margin-bottom: 16px;
 
-  .row > * { min-width: 140px; }
+  .row > * {
+    min-width: 140px;
+  }
 }
 
 .list {
@@ -21,24 +24,50 @@
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 12px;
-  display: flex; flex-direction: column; gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
   .top {
-    display: flex; align-items: center;
+    display: flex;
+    align-items: center;
   }
-  .name { font-weight: 700; flex: 1; }
+  .name {
+    font-weight: 700;
+    flex: 1;
+  }
   .ovr {
-    background: #111827; color: #fff; font-weight: 700;
-    border-radius: 10px; padding: 4px 8px; min-width: 32px; text-align: center;
+    background: #111827;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 4px 8px;
+    min-width: 32px;
+    text-align: center;
   }
-  .meta { display: flex; gap: 6px; flex-wrap: wrap; font-size: 14px; }
-  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; font-size: 14px; }
-  .link { color: var(--primary); text-decoration: none; font-weight: 600; }
+  .meta {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    font-size: 14px;
+  }
+  .link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
 }
 
 .pager {
-  display: flex; align-items: center; gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   justify-content: center;
   margin-top: 16px;
 }
-

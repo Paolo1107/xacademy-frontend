@@ -1,20 +1,137 @@
-:host { display:block; padding:1rem; }
-
-h2 { margin: .25rem 0 1rem; }
-
-a[routerLink="/my-players/new"] {
-  display:inline-block;
-  margin-bottom:1rem;
-  padding:.5rem .75rem;
-  border:1px solid #ddd;
-  border-radius:.5rem;
-  text-decoration:none;
+:host {
+  display: block;
+  padding: 2rem 1rem 3rem;
 }
 
-ul { list-style:none; margin:0; padding:0; display:grid; gap:.75rem; }
-li {
-  border:1px solid #eee; border-radius:.75rem; padding:.75rem;
-  display:flex; align-items:center; gap:1rem; justify-content:space-between;
+h2 {
+  margin: 0.25rem 0 1rem;
+  font-size: clamp(1.6rem, 1.1rem + 1.5vw, 2.2rem);
 }
-li a { text-decoration:none; padding:.35rem .6rem; border:1px solid #ddd; border-radius:.5rem; }
-.error { color:#c00; }
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Grid responsive */
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* Tarjeta */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  color: var(--text);
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(16, 24, 40, 0.08);
+}
+
+.card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+.name {
+  font-size: 1.05rem;
+  line-height: 1.2;
+  margin: 0;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Meta */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.6rem;
+  align-items: center;
+  margin: 0.35rem 0 0.65rem;
+}
+.muted {
+  color: #6b7280;
+  font-size: 0.93rem;
+}
+
+/* Chips & badges */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  line-height: 1;
+  border: 1px solid transparent;
+}
+.position {
+  background: #eef6ff;
+  color: #1d4ed8;
+  border-color: #dbeafe;
+  font-weight: 600;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.badge.ver {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #d1fae5;
+}
+
+/* Acciones */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  border-color: #1e53c6;
+  box-shadow: 0 1px 1px rgba(37, 99, 235, 0.15);
+}
+.btn-primary:hover {
+  filter: brightness(0.96);
+}
+.btn-outline {
+  background: var(--card);
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-outline:hover {
+  background: #f8fafc;
+}

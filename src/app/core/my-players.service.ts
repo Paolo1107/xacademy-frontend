@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
-export type MyPlayerPayload = {
-
-    id: number;
+export interface MyPlayer {
+  id: number;
   long_name: string;
   player_positions: string;
   club_name: string | null;
@@ -15,21 +14,25 @@ export type MyPlayerPayload = {
   gender: 'male' | 'female';
   fifa_version: string;
   created_by: number;
-};
+}
+export type MyPlayerDto = Omit<MyPlayer, 'id' | 'created_by'>;
+
+type Paginated<T> = { data: T[]; page: number; pageSize: number; total: number };
 
 @Injectable({ providedIn: 'root' })
 export class MyPlayersService {
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-    listMine(): Observable<MyPlayerPayload[]> {
-    return this.http.get<MyPlayerPayload[]>('/api/my-players');
+  listMine(): Observable<MyPlayer[]> {
+    return this.http.get<Paginated<MyPlayer>>('/api/my-players')
+      .pipe(map(r => r?.data ?? []));
   }
 
-  create(payload: Partial<MyPlayerPayload>): Observable<MyPlayerPayload> {
-    return this.http.post<MyPlayerPayload>('/api/my-players', payload);
+  
+  create(dto: MyPlayerDto) {
+    return this.http.post<MyPlayer>('/api/my-players', dto);
   }
-
-  update(id: number, payload: Partial<MyPlayerPayload>): Observable<MyPlayerPayload> {
-    return this.http.put<MyPlayerPayload>(`/api/my-players/${id}`, payload);
+  update(id: number, dto: MyPlayerDto) {
+    return this.http.put<MyPlayer>(`/api/my-players/${id}`, dto);
   }
 }

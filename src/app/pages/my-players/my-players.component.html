@@ -1,25 +1,41 @@
 <h2>Mis jugadores</h2>
 
-<a class="btn" routerLink="/my-players/new">+ Crear</a>
-
 @if (loading()) {
-  <p>Cargando…</p>
+<p>Cargando…</p>
 } @else if (error()) {
-  <p class="error">{{ error() }}</p>
+<p class="error">{{ error() }}</p>
 } @else if (items().length === 0) {
-  <p class="muted">Todavía no creaste jugadores.</p>
+<p class="muted">Todavía no creaste jugadores.</p>
 } @else {
-  <div class="grid">
-    @for (p of items(); track p.id) {
-      <div class="card">
-        <strong>{{ p.long_name }}</strong>
-        <div class="meta">
-          <span>{{ p.player_positions }}</span>
-          <span>{{ p.club_name || '—' }}</span>
-          <span>{{ p.gender }} • v{{ p.fifa_version }}</span>
-        </div>
-        <a [routerLink]="['/my-players', p.id]">Editar</a>
-      </div>
-    }
-  </div>
+<div class="toolbar">
+  <a class="btn btn-primary" routerLink="/my-players/new">+ Crear</a>
+</div>
+
+<section class="grid">
+  @for (p of items(); track p.id) {
+  <article class="card">
+    <header class="card-header">
+      <h3 class="name" [title]="p.long_name">{{ p.long_name }}</h3>
+      <span class="badge ver">v{{ p.fifa_version }}</span>
+    </header>
+
+    <div class="meta">
+      <span class="chip position">{{
+        (p.player_positions || "").split(",")[0]
+      }}</span>
+      <span class="muted">{{ p.club_name || "Libre" }}</span>
+      <span class="muted">{{ p.gender }}</span>
+    </div>
+
+    <footer class="actions">
+      <a
+        class="btn btn-outline"
+        [routerLink]="['/my-players', p.id]"
+        [state]="p"
+        >Editar</a
+      >
+    </footer>
+  </article>
+  }
+</section>
 }

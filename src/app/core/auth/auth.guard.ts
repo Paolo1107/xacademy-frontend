@@ -10,7 +10,7 @@ export const authGuard: CanActivateFn = (route, state) => {
     if (auth.isAuthenticated()) return true;
 
     // si NO hay token, redirigimos a login
-    // ⚠️ solo pasamos returnUrl, NO los filtros de la URL
+    // solo pasamos returnUrl, NO los filtros de la URL
     return router.createUrlTree(['/login'], {
         queryParams: { returnUrl: state.url },
     });

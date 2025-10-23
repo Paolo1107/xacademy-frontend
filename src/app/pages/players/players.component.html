@@ -9,75 +9,87 @@
       <select formControlName="position">
         <option value="">Position</option>
         @for (pos of positions; track pos) {
-          <option [value]="pos">{{ pos }}</option>
+        <option [value]="pos">{{ pos }}</option>
         }
       </select>
 
       <select formControlName="gender">
         <option value="">Gender</option>
         @for (g of genders; track g) {
-          <option [value]="g">{{ g }}</option>
+        <option [value]="g">{{ g }}</option>
         }
       </select>
 
       <select formControlName="version">
         <option value="">Version</option>
         @for (v of versions; track v) {
-          <option [value]="v">{{ v }}</option>
+        <option [value]="v">{{ v }}</option>
         }
       </select>
 
       <select formControlName="pageSize">
         @for (s of [10,20,50,100]; track s) {
-          <option [value]="s">{{ s }} / page</option>
+        <option [value]="s">{{ s }} / page</option>
         }
       </select>
 
       <button class="btn btn--primary" type="submit">Search</button>
       <button class="btn" type="button" (click)="clearFilters()">Clear</button>
-      <button class="btn" type="button" (click)="exportCsv()">Export CSV</button>
+      <button class="btn" type="button" (click)="exportCsv()">
+        Export CSV
+      </button>
     </div>
   </form>
 
-  @if (loading()) { <p class="muted">Loading...</p> }
-  @if (error())   { <p class="error">{{ error() }}</p> }
+  @if (loading()) {
+  <p class="muted">Loading...</p>
+  } @if (error()) {
+  <p class="error">{{ error() }}</p>
+  } @if (!loading() && !error()) {
+  <div class="list">
+    @for (p of players(); track p.id) {
+    <div class="card">
+      <div class="top">
+        <strong class="name">{{ p.long_name }}</strong>
+        <span class="ovr">{{ p.overall_rating }}</span>
+      </div>
 
-  @if (!loading() && !error()) {
-    <div class="list">
-      @for (p of players(); track p.id) {
-        <div class="card">
-          <div class="top">
-            <strong class="name">{{ p.long_name }}</strong>
-            <span class="ovr">{{ p.overall_rating }}</span>
-          </div>
+      <div class="meta muted">
+        <span>{{ p.player_positions }}</span>
+        <span>• {{ p.club_name || "—" }}</span>
+        <span>• {{ p.nationality_name || "—" }}</span>
+        <span>• {{ p.gender }} v{{ p.fifa_version }}</span>
+      </div>
 
-          <div class="meta muted">
-            <span>{{ p.player_positions }}</span>
-            <span>• {{ p.club_name || "—" }}</span>
-            <span>• {{ p.nationality_name || "—" }}</span>
-            <span>• {{ p.gender }} v{{ p.fifa_version }}</span>
-          </div>
+      <div class="skills">
+        <span>PAC {{ p.pace }}</span>
+        <span>SHO {{ p.shooting }}</span>
+        <span>PAS {{ p.passing }}</span>
+        <span>DRI {{ p.dribbling }}</span>
+        <span>DEF {{ p.defending }}</span>
+        <span>PHY {{ p.physic }}</span>
+      </div>
 
-          <div class="skills">
-            <span>PAC {{ p.pace }}</span>
-            <span>SHO {{ p.shooting }}</span>
-            <span>PAS {{ p.passing }}</span>
-            <span>DRI {{ p.dribbling }}</span>
-            <span>DEF {{ p.defending }}</span>
-            <span>PHY {{ p.physic }}</span>
-          </div>
-
-          <a class="link" [routerLink]="['/players', p.id]">Ver detalle</a>
-        </div>
-      }
-      @if (players().length === 0) { <p class="muted">No results.</p> }
+      <a class="link" [routerLink]="['/players', p.id]">Ver detalle</a>
     </div>
+    } @if (players().length === 0) {
+    <p class="muted">No results.</p>
+    }
+  </div>
 
-    <div class="pager">
-      <button class="btn" (click)="prevPage()" [disabled]="page() <= 1">Prev</button>
-      <span>Page {{ page() }} / {{ totalPages() }}</span>
-      <button class="btn" (click)="nextPage()" [disabled]="page() >= totalPages()">Next</button>
-      <span class="muted">Total: {{ total() }}</span>
-    </div>
+  <div class="pager">
+    <button class="btn" (click)="prevPage()" [disabled]="page() <= 1">
+      Prev
+    </button>
+    <span>Page {{ page() }} / {{ totalPages() }}</span>
+    <button
+      class="btn"
+      (click)="nextPage()"
+      [disabled]="page() >= totalPages()"
+    >
+      Next
+    </button>
+    <span class="muted">Total: {{ total() }}</span>
+  </div>
   }
 </section>

@@ -11,12 +11,18 @@
 
 *,
 *::before,
-*::after { box-sizing: border-box; }
+*::after {
+  box-sizing: border-box;
+}
 
-html, body { height: 100%; }
+html,
+body {
+  height: 100%;
+}
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial,
+    sans-serif;
   color: var(--text);
   background: var(--bg);
 }
@@ -29,39 +35,65 @@ body {
 }
 
 .topbar {
-  position: sticky; top: 0; z-index: 20;
+  position: sticky;
+  top: 0;
+  z-index: 20;
   background: var(--card);
   border-bottom: 1px solid var(--border);
 }
 .topbar__content {
-  display: flex; align-items: center; gap: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
   padding: 12px 0;
 }
-.brand { font-weight: 700; }
-.nav { display: flex; gap: 12px; margin-left: auto; }
-.nav a {
-  color: var(--text); text-decoration: none; padding: 6px 10px; border-radius: 8px;
+.brand {
+  font-weight: 700;
 }
-.nav a.active { background: #eef2ff; color: var(--primary); }
+.nav {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+}
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.nav a.active {
+  background: #eef2ff;
+  color: var(--primary);
+}
 
 /* ====== Tipografía ====== */
-h1, h2, h3 { margin: 0 0 12px; }
-h2 { font-size: 28px; }
+h1,
+h2,
+h3 {
+  margin: 0 0 12px;
+}
+h2 {
+  font-size: 28px;
+}
 
 /* ====== Form & Buttons ====== */
-input, select, button {
+input,
+select,
+button {
   font: inherit;
 }
-input, select {
+input,
+select {
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 8px 10px;
   outline: none;
 }
-input:focus, select:focus {
+input:focus,
+select:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
 
 .btn {
@@ -71,19 +103,32 @@ input:focus, select:focus {
   background: #fff;
   cursor: pointer;
 }
-.btn:disabled { opacity: .6; cursor: not-allowed; }
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 .btn--primary {
   background: var(--primary);
   border-color: var(--primary);
   color: #fff;
 }
-.btn--primary:hover { background: var(--primary-600); }
+.btn--primary:hover {
+  background: var(--primary-600);
+}
 .btn--ghost {
   background: transparent;
   border-color: transparent;
 }
 
 /* ====== Utilidades ====== */
-.muted { color: var(--muted); }
-.row { display: flex; gap: 12px; flex-wrap: wrap; }
-.space { height: 16px; }
+.muted {
+  color: var(--muted);
+}
+.row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.space {
+  height: 16px;
+}

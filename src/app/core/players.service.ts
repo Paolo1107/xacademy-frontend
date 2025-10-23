@@ -63,8 +63,8 @@ export class PlayersService {
 
     this.http.get('/api/players/export', {
       params: httpParams,
-      responseType: 'blob',       // 👈 recibimos Blob
-      observe: 'response'         // 👈 para leer headers (filename)
+      responseType: 'blob',       //  recibimos Blob
+      observe: 'response'         //  para leer headers (filename)
     }).subscribe((res: HttpResponse<Blob>) => {
       const blob = res.body!;
       // Intentar obtener el nombre de archivo desde Content-Disposition

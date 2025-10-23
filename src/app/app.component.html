@@ -7,7 +7,10 @@
       <a routerLink="/my-players" routerLinkActive="active">My Players</a>
     </nav>
 
-    <button class="btn btn--ghost" (click)="auth.logout(); router.navigate(['/login'])">
+    <button
+      class="btn btn--ghost"
+      (click)="auth.logout(); router.navigate(['/login'])"
+    >
       Logout
     </button>
   </div>

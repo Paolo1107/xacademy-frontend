@@ -20,7 +20,7 @@ export class LoginComponent {
     private fb: FormBuilder,
     private auth: AuthService,
     private router: Router,
-    private route: ActivatedRoute                
+    private route: ActivatedRoute
   ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -36,8 +36,8 @@ export class LoginComponent {
     this.auth.login(email, password).subscribe({
       next: () => {
         this.loading = false;
-        const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl'); 
-        this.router.navigateByUrl(returnUrl || '/players');                   
+        const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+        this.router.navigateByUrl(returnUrl || '/players');
       },
       error: () => {
         this.loading = false;
